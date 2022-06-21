@@ -93,11 +93,11 @@ def showMenu():
     # create dark theme button
     dark_theme = Button(
         tuple(c["colour"]["dark"]["2048"]), 270-70, 275, 45, 45, "dark")
-    
+
     # initialise theme
     theme = ""
     theme_selected = False
-    
+
     # create difficulty buttons
     _2048 = Button(tuple(c["colour"]["light"]["64"]),
                   130, 330, 45, 45, "2048")
@@ -111,7 +111,7 @@ def showMenu():
     # default difficulty
     difficulty = 0
     diff_selected = False
-    
+
     # create play button
     play = Button(tuple(c["colour"]["light"]["2048"]),
                   235, 400, 45, 45, "play")
@@ -152,7 +152,7 @@ def showMenu():
 
             if event.type == QUIT or \
                     (event.type == pygame.KEYDOWN and event.key == K_q):
-                # exit if q is pressed 
+                # exit if q is pressed
                 pygame.quit()
                 sys.exit()
 
@@ -171,7 +171,7 @@ def showMenu():
                     light_theme.colour = tuple(c["colour"]["light"]["2048"])
                     theme = "dark"
                     theme_selected = True
-                
+
                 if _2048.isOver(pos):
                     _2048.colour = tuple(c["colour"]["light"]["64"])
                     _1024.colour = tuple(c["colour"]["light"]["2048"])
@@ -179,7 +179,7 @@ def showMenu():
                     _256.colour = tuple(c["colour"]["light"]["2048"])
                     difficulty = 2048
                     diff_selected = True
-                
+
                 if _1024.isOver(pos):
                     _1024.colour = tuple(c["colour"]["light"]["64"])
                     _2048.colour = tuple(c["colour"]["light"]["2048"])
@@ -187,7 +187,7 @@ def showMenu():
                     _256.colour = tuple(c["colour"]["light"]["2048"])
                     difficulty = 1024
                     diff_selected = True
-                
+
                 if _512.isOver(pos):
                     _512.colour = tuple(c["colour"]["light"]["64"])
                     _1024.colour = tuple(c["colour"]["light"]["2048"])
@@ -195,7 +195,7 @@ def showMenu():
                     _256.colour = tuple(c["colour"]["light"]["2048"])
                     difficulty = 512
                     diff_selected = True
-                
+
                 if _256.isOver(pos):
                     _256.colour = tuple(c["colour"]["light"]["64"])
                     _1024.colour = tuple(c["colour"]["light"]["2048"])
@@ -228,7 +228,7 @@ def showMenu():
                     _1024.colour = tuple(c["colour"]["light"]["2048"])
                     _512.colour = tuple(c["colour"]["light"]["2048"])
                     _256.colour = tuple(c["colour"]["light"]["2048"])
-                    
+
 
             # change colour on hovering over buttons
             if event.type == pygame.MOUSEMOTION:
@@ -237,33 +237,33 @@ def showMenu():
                         light_theme.colour = tuple(c["colour"]["light"]["64"])
                     else:
                         light_theme.colour = tuple(c["colour"]["light"]["2048"])
-                    
+
                     if dark_theme.isOver(pos):
                         dark_theme.colour = tuple(c["colour"]["dark"]["background"])
                     else:
                         dark_theme.colour = tuple(c["colour"]["dark"]["2048"])
-                
+
                 if not diff_selected:
                     if _2048.isOver(pos):
                         _2048.colour = tuple(c["colour"]["light"]["64"])
                     else:
                         _2048.colour = tuple(c["colour"]["light"]["2048"])
-                    
+
                     if _1024.isOver(pos):
                         _1024.colour = tuple(c["colour"]["light"]["64"])
                     else:
                         _1024.colour = tuple(c["colour"]["light"]["2048"])
-                    
+
                     if _512.isOver(pos):
                         _512.colour = tuple(c["colour"]["light"]["64"])
                     else:
                         _512.colour = tuple(c["colour"]["light"]["2048"])
-                    
+
                     if _256.isOver(pos):
                         _256.colour = tuple(c["colour"]["light"]["64"])
                     else:
                         _256.colour = tuple(c["colour"]["light"]["2048"])
-                
+
                 if play.isOver(pos):
                     play.colour = tuple(c["colour"]["light"]["64"])
                 else:
@@ -289,5 +289,7 @@ if __name__ == "__main__":
     # set font according to json data specifications
     my_font = pygame.font.SysFont(c["font"], c["font_size"], bold=True)
 
-    # display the start screen 
-    showMenu()
+    # # display the start screen
+    # showMenu()
+
+    playGame("light", 2048)

@@ -14,8 +14,7 @@ from logic import *
 # set up pygame for main gameplay
 pygame.init()
 c = json.load(open("constants.json", "r"))
-screen = pygame.display.set_mode(
-    (c["size"], c["size"]))
+screen = pygame.display.set_mode((c["size"], c["size"]))
 my_font = pygame.font.SysFont(c["font"], c["font_size"], bold=True)
 WHITE = (255, 255, 255)
 
@@ -81,10 +80,10 @@ def newGame(theme, text_col):
     board = [[0] * 4 for _ in range(4)]
     display(board, theme)
 
-    screen.blit(my_font.render("NEW GAME!", 1, text_col), (130, 225))
-    pygame.display.update()
-    # wait for 1 second before starting over
-    time.sleep(1)
+    # screen.blit(my_font.render("NEW GAME!", 1, text_col), (130, 225))
+    # pygame.display.update()
+    # # wait for 1 second before starting over
+    # time.sleep(1)
 
     board = fillTwoOrFour(board, iter=2)
     display(board, theme)
